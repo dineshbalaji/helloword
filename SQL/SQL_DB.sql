@@ -61,23 +61,50 @@ create table table_name(col1 data_type unique, col2 data_type)
 create table table_name(col1 data_type primary key, co2 data_type)
 
 -- foreign key (link parent and child table)
-create table table_name (col1 int, col2 int reference parent_table_name(parent_col_name));
+create table table_name (col1 int, col2 int references parent_table_name(parent_col_name));
+-- we can say what action should happen when parent table(refference table) deleted or updated
+create table table_name (col1 int, col2 int references parent_table_name(parent_col_name) on delete casecade/set null/set default/no action);
+
+-- casecade - cascade parent table actions
+-- set null - if parent data deleted/ update then set null.
+-- set default - same like set null but diff here, it set default value
+
 
 -- check (run validation before insert or update value to table)
+-- check like where condtion, it work with 'in', 'between', like...
 create table table_name (col1 int check(conditions))
 -- ex:check price column > 5 or price column < discount column 
+
 
 
 
 --  to name constraints  
 create table table_name (col1 data_type, col2 data_type, constraint constraint_name type_constraint(col1,col2));
 -- when we create named constraint with multiple field then constraint logic are consist of multiple field
--- EX: unique constraint named with  col1 and col2 then insert accept (1,1) but when do next insert with (1,1) not allowed but it allow (1,2)
+-- EX: unique constraint named with  col1 and col2 then insert accept (1,1) but when do next insert with (1,1) not allowed but it allow (1,2);
 
--- TODO :
--- find verbose uses in syntax 
--- Check forgin key details in TechonTheNet docs for delete/update parent reference scenarios
--- To be confirm, whatever work on where cluse should work check clue
+-- create view
+create view view_name as 'some sql statement with select operator';
+-- update view
+
+replace view view_name as 'sql statement';
+
+-- can be combine both create and view
+
+create or replace view_name as 'sql statement';
+
+
+
+-- execute view
+select * from view_name;
+
+-- drop view 
+
+drop view view_name;
+
+
+
+
      
 
 
