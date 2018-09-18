@@ -5,6 +5,10 @@ alter database dbname;
 -- to delete
 drop databace dbname;
 
+-- delelte all data in table not but not table
+truncate table table_name
+
+
 -- crate table;
 create table table_name (datatype col1, datatype col2 ...);
 -- various datatypes in sql server . i hope can't remmber all data types, we want to refer datatype table
@@ -104,9 +108,57 @@ drop view view_name;
 
 
 
+-- create user 
+create user user_name with password 'password';
 
+-- change password
+alter user user_name with password 'new_password'
+
+-- rename user
+
+alter user user_name rename to 'new_name';
+
+-- delete user
+drop user user_name;
+
+-- get list of user from 'pg_user' table
+select * from pg_user;
+
+
+-- grant priviliege to particular user
+
+grant list_of_priviliege on products to user_name;
+
+-- grant privileges to all user
+grant list_of_priviliege on products to public;
+
+/* 
+list_of_priviliege
+-----------------
+select
+insert
+delete
+truncate
+update
+references
+create
+
+-- or --
+all
+*/
+
+/*
+ list of products
+ ---------------
+ 
+ table_name,
+ view_name
+ schema_name
+*/
      
+-- To revoke privilieges 
 
+revoke list_of_priviliege on products to user_name
 
 
 

@@ -181,3 +181,12 @@ go;
 -- To run procedure 
 
 exec procedure_name col1 = "test";
+
+
+-- declare variable
+
+declare var_name datatype := inital value;
+
+-- declare constant
+
+declare var_name constant datatype := inital value;
